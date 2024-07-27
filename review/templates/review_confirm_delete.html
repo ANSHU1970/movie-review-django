@@ -1,0 +1,20 @@
+{% extends "layout.html" %}
+
+{% block title %}
+Review
+{% endblock %}
+
+{% block content %}
+<div class="m-5">
+<div class="w-100">
+    <div class="mx-auto">
+<h2 class="text-red">Are you sure you want to delete the review?</h2>
+<form  method="post">
+    {% csrf_token %}
+    <button class="btn btn-danger m-1 b-3">Delete</button>
+    <a class="btn btn-success m-1 p-2" href="{% url 'review_list' %}">Cancel</a>
+</form>
+</div>
+</div>
+</div>
+{% endblock %}

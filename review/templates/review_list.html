@@ -1,0 +1,28 @@
+{% extends "layout.html" %}
+
+{% block title %}
+Review
+{% endblock %}
+{% block add %}<a class="btn btn-primary mb-2 mt-2"href="{% url 'review_create' %}">Add Review</a>{% endblock %}
+{% block content %}
+<h1 class="text-center mt-4">Be A Critic Buddy!!</h1>
+<br>
+<div class="container row gap-3 mx-auto">
+{% for review in reviews %}
+<div class="card" style="width: 19rem;">
+    <img src="{{review.photo.url}}" class="card-img-top" alt="...">
+    <div class="card-body">
+      <h5 class="card-title">{{review.movies_series_name}}</h5>
+      <p>{{review.rating}}</p>
+      <p class="card-text">{{review.text}}</p>
+      {% if review.user == user %}
+      <a href="{% url 'review_edit' review.id%}" class="btn btn-primary">Edit Review</a>
+      <a href="{% url 'review_delete' review.id%}" class="btn btn-danger">Delete Review</a>
+      {% endif %}
+    </div>
+  </div>
+
+{% endfor %}
+
+{% endblock %}
+</div>

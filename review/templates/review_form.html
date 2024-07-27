@@ -1,0 +1,27 @@
+{% extends "layout.html" %}
+
+{% block title %}
+Review
+{% endblock %}
+
+{% block content %}
+<h1 class="text-center mt-4 ">Add Review</h1>
+
+<div class="card">
+    <div class="mx-auto m-3">
+    {% if form.instance.pk %} 
+    Edit Review
+    {% else %}
+     
+    {% endif %}
+    <form method="post" enctype="multipart/form-data" class
+    ="form">
+    {% csrf_token %}
+    {{form.as_p}}
+    <button class="btn btn-warning m-2" type="submit">Submit</button>
+    </form>
+    <a class="btn btn-success"href="{% url 'review_list' %}">Back to Review list</a>
+</div>
+</div>
+
+{% endblock %}

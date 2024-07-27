@@ -1,0 +1,16 @@
+{% extends "layout.html" %}
+{% block content %}
+<div class="card m-5 p-4">
+    <div class="mx-auto">
+<h2>Login form</h2>
+<form method="post">
+    {% csrf_token %}
+    {{form.as_p}}
+    <button class="btn btn-success">Login</button>
+</form>
+<p>Dont have an account?
+    <a class="btn btn-primary"href="{% url 'register' %}">Register</a>
+</p>
+</div>
+</div>
+{% endblock %}
