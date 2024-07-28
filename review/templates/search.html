@@ -2,18 +2,20 @@
 
 {% block content %}
 {% if searched %}
-<div class='d-flex flex-row bd-highlight mb-3'>
+<div class='d-flex flex-row bd-highlight justify-content-center'>
 {% for review in reviews %}
 <div class="m-2">
-   <div class="card" style="width: 19rem;">
+   <div class="card" style="width: 100%rem;">
     <img src="{{review.photo.url}}" class="card-img-top" alt="...">
     <div class="card-body">
       <h5 class="card-title">{{review.movies_series_name}}</h5>
       <p>{{review.rating}}</p>
       <p class="card-text">{{review.text}}</p>
       {% if review.user == user %}
+      <div class="container row gap-2 mx-auto d-flex">
       <a href="{% url 'review_edit' review.id%}" class="btn btn-primary">Edit Review</a>
       <a href="{% url 'review_delete' review.id%}" class="btn btn-danger">Delete Review</a>
+    </div>
       {% endif %}
     </div>
   </div>
